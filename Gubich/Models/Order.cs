@@ -75,25 +75,35 @@ namespace Gubich.Models
             }
 
         }
+        static string GetUpdateStorageQuery(Order order)
+        {
+            Storage storageItem = Storage.getStorageList().FirstOrDefault(x => x.ProductId == order.ProductId);
+            int newCount = storageItem.Count;
+            newCount -= order.Count;
+            return String.Format("UPDATE Storage SET [Count] = {0} WHERE id ={1}", newCount, storageItem.id);
+        }
         public static bool insertNewOrder(Order order)
         {
+            
             string sqlExpression = String.Format("INSERT INTO Orders (Count, OrderDate, ClientId, ProductId, ManagerId) VALUES ({0}, '{1}', {2}, {3}, 6)", 
                 order.Count, order.OrderDate, order.ClientId, order.ProductId);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
+            SQLService.ExecuteSQLQuery(sqlExpression);
+            return SQLService.ExecuteSQLQuery(GetUpdateStorageQuery(order));
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
+            //    {
+            //        connection.Open();
+            //        SqlCommand command = new SqlCommand(sqlExpression, connection);
+            //        int number = command.ExecuteNonQuery();
 
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            //    }
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    return false;
+            //}
 
         }
         public static Client getClient(int id)

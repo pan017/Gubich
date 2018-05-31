@@ -18,6 +18,15 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
         }
+        public OrderForm(Models.Account.Account account)
+        {
+            InitializeComponent();
+            if (account.Role.RoleName != "admin")
+            {
+                AddOrderButton.Visible = false;
+                EditOrderButton.Visible = false;
+            }
+        }
         List<Order> ordersList;
         private void OrderForm_Load(object sender, EventArgs e)
         {

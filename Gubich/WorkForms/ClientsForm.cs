@@ -1,5 +1,6 @@
 ﻿using Gubich.ModelForms;
 using Gubich.Models;
+using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,16 @@ namespace Gubich.WorkForms
             InitializeComponent();
             clientsList = Client.getClientList();
 
+        }
+        public ClientsForm(Account account)
+        {
+            InitializeComponent();
+            clientsList = Client.getClientList();
+            if (account.Role.RoleName != "admin")
+            {
+                AddClientButton.Visible = false;
+                EditClientButton.Visible = false;
+            }
         }
         List<Client> clientsList;
         private void ClientsForm_Load(object sender, EventArgs e)

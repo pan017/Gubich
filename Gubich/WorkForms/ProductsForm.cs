@@ -19,7 +19,15 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
         }
-
+        public ProductsForm(Models.Account.Account account)
+        {
+            InitializeComponent();
+            if (account.Role.RoleName != "admin")
+            {
+                AddProductButton.Visible = false;
+                EditProductButton.Visible = false;
+            }
+        }
         private void ProductsForm_Load(object sender, EventArgs e)
         {
            // updateDataGridView();

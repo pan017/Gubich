@@ -35,13 +35,13 @@
             this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdresColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddClientButton = new System.Windows.Forms.Button();
-            this.RemoveClientButton = new System.Windows.Forms.Button();
             this.EditClientButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // clientsDataGridView
             // 
+            this.clientsDataGridView.AllowUserToAddRows = false;
             this.clientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
@@ -84,28 +84,19 @@
             // 
             this.AddClientButton.Location = new System.Drawing.Point(12, 168);
             this.AddClientButton.Name = "AddClientButton";
-            this.AddClientButton.Size = new System.Drawing.Size(75, 23);
+            this.AddClientButton.Size = new System.Drawing.Size(176, 23);
             this.AddClientButton.TabIndex = 1;
-            this.AddClientButton.Text = "AddClient";
+            this.AddClientButton.Text = "Новый клиент";
             this.AddClientButton.UseVisualStyleBackColor = true;
             this.AddClientButton.Click += new System.EventHandler(this.AddClientButton_Click);
-            // 
-            // RemoveClientButton
-            // 
-            this.RemoveClientButton.Location = new System.Drawing.Point(93, 168);
-            this.RemoveClientButton.Name = "RemoveClientButton";
-            this.RemoveClientButton.Size = new System.Drawing.Size(75, 23);
-            this.RemoveClientButton.TabIndex = 2;
-            this.RemoveClientButton.Text = "RemoveClient";
-            this.RemoveClientButton.UseVisualStyleBackColor = true;
             // 
             // EditClientButton
             // 
             this.EditClientButton.Location = new System.Drawing.Point(12, 197);
             this.EditClientButton.Name = "EditClientButton";
-            this.EditClientButton.Size = new System.Drawing.Size(75, 23);
+            this.EditClientButton.Size = new System.Drawing.Size(176, 23);
             this.EditClientButton.TabIndex = 3;
-            this.EditClientButton.Text = "EditClient";
+            this.EditClientButton.Text = "Изменить клиента";
             this.EditClientButton.UseVisualStyleBackColor = true;
             this.EditClientButton.Click += new System.EventHandler(this.EditClientButton_Click);
             // 
@@ -115,11 +106,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 264);
             this.Controls.Add(this.EditClientButton);
-            this.Controls.Add(this.RemoveClientButton);
             this.Controls.Add(this.AddClientButton);
             this.Controls.Add(this.clientsDataGridView);
             this.Name = "ClientsForm";
-            this.Text = "ClientsForm";
+            this.Text = "Клиенты";
             this.Activated += new System.EventHandler(this.ClientsForm_Activated);
             this.Load += new System.EventHandler(this.ClientsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
@@ -136,7 +126,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AdresColumn;
         private System.Windows.Forms.Button AddClientButton;
-        private System.Windows.Forms.Button RemoveClientButton;
         private System.Windows.Forms.Button EditClientButton;
     }
 }

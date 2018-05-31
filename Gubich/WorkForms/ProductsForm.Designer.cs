@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ProductDataGridView = new System.Windows.Forms.DataGridView();
-            this.AddProductButton = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,12 +36,14 @@
             this.CharackteristicColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddProductButton = new System.Windows.Forms.Button();
             this.EditProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ProductDataGridView
             // 
+            this.ProductDataGridView.AllowUserToAddRows = false;
             this.ProductDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
@@ -56,16 +57,6 @@
             this.ProductDataGridView.Name = "ProductDataGridView";
             this.ProductDataGridView.Size = new System.Drawing.Size(724, 217);
             this.ProductDataGridView.TabIndex = 0;
-            // 
-            // AddProductButton
-            // 
-            this.AddProductButton.Location = new System.Drawing.Point(12, 247);
-            this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(137, 23);
-            this.AddProductButton.TabIndex = 1;
-            this.AddProductButton.Text = "Добавить товар";
-            this.AddProductButton.UseVisualStyleBackColor = true;
-            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // idColumn
             // 
@@ -103,6 +94,16 @@
             this.ProductTypeColumn.HeaderText = "Тип";
             this.ProductTypeColumn.Name = "ProductTypeColumn";
             // 
+            // AddProductButton
+            // 
+            this.AddProductButton.Location = new System.Drawing.Point(12, 247);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(137, 23);
+            this.AddProductButton.TabIndex = 1;
+            this.AddProductButton.Text = "Добавить товар";
+            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
+            // 
             // EditProductButton
             // 
             this.EditProductButton.Location = new System.Drawing.Point(155, 247);
@@ -122,7 +123,7 @@
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.ProductDataGridView);
             this.Name = "ProductsForm";
-            this.Text = "ProductsForm";
+            this.Text = "Продукция";
             this.Activated += new System.EventHandler(this.ProductsForm_Activated);
             this.Load += new System.EventHandler(this.ProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataGridView)).EndInit();

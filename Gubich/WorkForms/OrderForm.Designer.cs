@@ -41,6 +41,7 @@
             // 
             // OrderDataGridView
             // 
+            this.OrderDataGridView.AllowUserToAddRows = false;
             this.OrderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrderDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
@@ -108,7 +109,7 @@
             this.Controls.Add(this.AddOrderButton);
             this.Controls.Add(this.OrderDataGridView);
             this.Name = "OrderForm";
-            this.Text = "OrderForm";
+            this.Text = "Заказы";
             this.Activated += new System.EventHandler(this.OrderForm_Activated);
             this.Load += new System.EventHandler(this.OrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();

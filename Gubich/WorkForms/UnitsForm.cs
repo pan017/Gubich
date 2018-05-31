@@ -1,4 +1,5 @@
 ﻿using Gubich.Models;
+using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,22 @@ namespace Gubich.WorkForms
             InitializeComponent();
             unitList = Unit.getUnitsList();
         }
+
+        public UnitsForm(Account account)
+        {
+            InitializeComponent();
+            WordkingTextBox.Visible = false;
+            DescriptionTextBox.Visible = false;
+            SaveUnitsButton.Visible = false;
+            AddUnitsButton.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            this.Size = new Size { Height = this.Size.Height, Width = 305 };
+        }
         List<Unit> unitList;
         private void AddUnitsButton_Click(object sender, EventArgs e)
         {
-            if (WordkingTextBox.Text.Length <= 1)
+            if (WordkingTextBox.Text.Length < 1)
             {
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
                 return;
@@ -59,6 +72,7 @@ namespace Gubich.WorkForms
             {
                 UnitsDataGridView.Rows.Add(item.id, item.Name, item.Description);
             }
+           // UnitsDataGridView.Rows.Remove(UnitsDataGridView.Rows[UnitsDataGridView.RowCount]);
         }
 
         private void UnitsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

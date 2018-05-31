@@ -67,7 +67,7 @@ namespace Gubich.ModelForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (NameTextBox.Text.Length < 2 || CharacteristicTextBox.Text.Length < 2 || PriceTextBox.Text.Length < 2 || DescriptionTextBox.Text.Length < 2)
+            if (NameTextBox.Text.Length < 2 || CharacteristicTextBox.Text.Length < 2 || PriceTextBox.Text.Length < 1 || DescriptionTextBox.Text.Length < 2)
             {
                 MessageBox.Show("Заполните все поля!", "Ошибка");
                 return;

@@ -32,32 +32,38 @@ namespace Gubich
 
         private void ClientsButton_Click(object sender, EventArgs e)
         {
-            ClientsForm clientsForm = new ClientsForm();
+            ClientsForm clientsForm = new ClientsForm(currentUser);
             clientsForm.ShowDialog();
         }
 
         private void ProductTypesButton_Click(object sender, EventArgs e)
         {
-            ProductTypesForm productTypesForm = new ProductTypesForm();
+            ProductTypesForm productTypesForm = new ProductTypesForm(currentUser);
             productTypesForm.ShowDialog();
         }
 
         private void UnitsButton_Click(object sender, EventArgs e)
         {
-            UnitsForm unitsForm = new UnitsForm();
+            UnitsForm unitsForm = new UnitsForm(currentUser);
             unitsForm.ShowDialog();
         }
 
         private void ProductsButton_Click(object sender, EventArgs e)
         {
-            ProductsForm productsForm = new ProductsForm();
+            ProductsForm productsForm = new ProductsForm(currentUser);
             productsForm.ShowDialog();
         }
 
         private void OrdersButton_Click(object sender, EventArgs e)
         {
-            OrderForm orderForm = new OrderForm();
+            OrderForm orderForm = new OrderForm(currentUser);
             orderForm.ShowDialog();
+        }
+
+        private void StorageButton_Click(object sender, EventArgs e)
+        {
+            StorageForm storageForm = new StorageForm(currentUser);
+            storageForm.ShowDialog();
         }
     }
 }

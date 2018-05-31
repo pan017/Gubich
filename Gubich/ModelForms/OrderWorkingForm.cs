@@ -64,6 +64,11 @@ namespace Gubich.ModelForms
                 MessageBox.Show("Выбирите товар", "Ошибка");
                 return;
             }
+            if (getSelectedProductsCount() < OrderCount.Value)
+            {
+                MessageBox.Show("На складе нету такого количества товара!", "Ошибка");
+                return;
+            }
             Order newOrder = new Order{
                 Count = (int)OrderCount.Value,
                 OrderDate = OrderDateTime.Value,
@@ -124,6 +129,35 @@ namespace Gubich.ModelForms
         private void OrderWorkingForm_Activated(object sender, EventArgs e)
         {
             initializeComboBox();
+        }
+
+        private void ProductComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {           
+            StorageCountLabel.Text = String.Format("На складе {0} {1}.", getSelectedProductsCount(), getSelectedProductUnits());
+            OrderCount.Maximum = getSelectedProductsCount();
+        }
+        string getSelectedProductUnits()
+        {
+            try
+            {
+                return Storage.getStorageList().FirstOrDefault(x => x.ProductId == ((Product)ProductComboBox.SelectedItem).id).Product.Unit.Name;
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+            
+        }
+        int getSelectedProductsCount()
+        {
+            try
+            {
+                return Storage.getStorageList().FirstOrDefault(x => x.ProductId == ((Product)ProductComboBox.SelectedItem).id).Count;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
         }
     }
 }

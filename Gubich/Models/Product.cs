@@ -31,45 +31,67 @@ namespace Gubich.Models
                 String.Format(
                     "UPDATE Product SET Name = '{0}', Cost = {1}, Desciption = '{2}', Characteristic = '{3}', UnitId = {4}, ProductTypeId = {5} " +
                     " WHERE id = {6} ", product.Name, product.Cost, product.Description, product.Characteristic, product.UnitId, product.ProductTypeId, product.id);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
+            return SQLService.ExecuteSQLQuery(sqlExpression);
+            
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
+            //    {
+            //        connection.Open();
+            //        SqlCommand command = new SqlCommand(sqlExpression, connection);
+            //        int number = command.ExecuteNonQuery();
 
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            //    }
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    return false;
+            //}
 
         }
         public static bool insertNewProduct(Product product)
         {
-            string sqlExpression = 
-                String.Format(
-                    "INSERT INTO Product (Name, Cost, Desciption, Characteristic, UnitId, ProductTypeId)" +
-                    " VALUES ('{0}', {1}, '{2}', '{3}', {4}, {5})",
-                    product.Name, product.Cost, product.Description, product.Characteristic, product.UnitId, product.ProductTypeId);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
+            string sqlExpression = "InsertNewProduct";
 
-                }
-                return true;
-            }
-            catch (Exception e)
+            using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
             {
-                return false;
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Name", product.Name);
+                command.Parameters.AddWithValue("@Cost", product.Cost);
+                command.Parameters.AddWithValue("@Desciption", product.Description);
+                command.Parameters.AddWithValue("@Characteristic", product.Characteristic);
+                command.Parameters.AddWithValue("@UnitId", product.UnitId);
+                command.Parameters.AddWithValue("@ProductTypeId", product.ProductTypeId);
+
+                 var result = command.ExecuteScalar();
+                //string sqlExpression = 
+                //String.Format(
+                //    "INSERT INTO Product (Name, Cost, Desciption, Characteristic, UnitId, ProductTypeId)" +
+                //    " VALUES ('{0}', {1}, '{2}', '{3}', {4}, {5})",
+                //    product.Name, product.Cost, product.Description, product.Characteristic, product.UnitId, product.ProductTypeId);
+
+                return true; // SQLService.ExecuteSQLQuery(sqlExpression);
             }
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
+            //    {
+            //        connection.Open();
+            //        SqlCommand command = new SqlCommand(sqlExpression, connection);
+            //        int number = command.ExecuteNonQuery();
+
+            //    }
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    return false;
+            //}
+
 
         }
         public static List<Product> getProductsList()

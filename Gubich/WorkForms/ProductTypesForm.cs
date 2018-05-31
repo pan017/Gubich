@@ -16,12 +16,26 @@ namespace Gubich.WorkForms
         public ProductTypesForm()
         {
             InitializeComponent();
-            productTypesList = ProductType.getProductTypesList();
+            
+        }
+
+        public ProductTypesForm(Models.Account.Account account)
+        {
+            InitializeComponent();
+            if (account.Role.RoleName != "admin")
+            {
+                SaveProductTypeButton.Visible = false;
+                WordkingTextBox.Visible = false;
+                AddProductType.Visible = false;
+                label1.Visible = false;
+                this.Size = new Size { Height = this.Size.Height, Width = 402 };
+            }
+
         }
         private List<ProductType> productTypesList;
         private void ProductTypesForm_Load(object sender, EventArgs e)
         {
-          
+            productTypesList = ProductType.getProductTypesList();
         }
 
         private void AddProductType_Click(object sender, EventArgs e)

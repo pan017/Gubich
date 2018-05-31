@@ -38,6 +38,7 @@
             this.ClientLabel = new System.Windows.Forms.Label();
             this.ProductLabel = new System.Windows.Forms.Label();
             this.NewClientButton = new System.Windows.Forms.Button();
+            this.StorageCountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.OrderCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +71,7 @@
             this.ProductComboBox.Name = "ProductComboBox";
             this.ProductComboBox.Size = new System.Drawing.Size(121, 21);
             this.ProductComboBox.TabIndex = 3;
+            this.ProductComboBox.SelectedIndexChanged += new System.EventHandler(this.ProductComboBox_SelectedIndexChanged);
             // 
             // SaveButton
             // 
@@ -127,11 +129,20 @@
             this.NewClientButton.UseVisualStyleBackColor = true;
             this.NewClientButton.Click += new System.EventHandler(this.NewClientButton_Click);
             // 
+            // StorageCountLabel
+            // 
+            this.StorageCountLabel.AutoSize = true;
+            this.StorageCountLabel.Location = new System.Drawing.Point(146, 83);
+            this.StorageCountLabel.Name = "StorageCountLabel";
+            this.StorageCountLabel.Size = new System.Drawing.Size(0, 13);
+            this.StorageCountLabel.TabIndex = 10;
+            // 
             // OrderWorkingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.StorageCountLabel);
             this.Controls.Add(this.NewClientButton);
             this.Controls.Add(this.ProductLabel);
             this.Controls.Add(this.ClientLabel);
@@ -164,5 +175,6 @@
         private System.Windows.Forms.Label ClientLabel;
         private System.Windows.Forms.Label ProductLabel;
         private System.Windows.Forms.Button NewClientButton;
+        private System.Windows.Forms.Label StorageCountLabel;
     }
 }

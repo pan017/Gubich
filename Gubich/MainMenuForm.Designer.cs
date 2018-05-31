@@ -34,15 +34,16 @@
             this.ClientsButton = new System.Windows.Forms.Button();
             this.ProductTypesButton = new System.Windows.Forms.Button();
             this.UnitsButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ProductsButton
             // 
             this.ProductsButton.Location = new System.Drawing.Point(114, 80);
             this.ProductsButton.Name = "ProductsButton";
-            this.ProductsButton.Size = new System.Drawing.Size(75, 23);
+            this.ProductsButton.Size = new System.Drawing.Size(166, 23);
             this.ProductsButton.TabIndex = 0;
-            this.ProductsButton.Text = "Products";
+            this.ProductsButton.Text = "Продукция";
             this.ProductsButton.UseVisualStyleBackColor = true;
             this.ProductsButton.Click += new System.EventHandler(this.ProductsButton_Click);
             // 
@@ -50,18 +51,19 @@
             // 
             this.StorageButton.Location = new System.Drawing.Point(114, 109);
             this.StorageButton.Name = "StorageButton";
-            this.StorageButton.Size = new System.Drawing.Size(75, 23);
+            this.StorageButton.Size = new System.Drawing.Size(166, 23);
             this.StorageButton.TabIndex = 1;
-            this.StorageButton.Text = "Storage";
+            this.StorageButton.Text = "Склад";
             this.StorageButton.UseVisualStyleBackColor = true;
+            this.StorageButton.Click += new System.EventHandler(this.StorageButton_Click);
             // 
             // OrdersButton
             // 
             this.OrdersButton.Location = new System.Drawing.Point(114, 138);
             this.OrdersButton.Name = "OrdersButton";
-            this.OrdersButton.Size = new System.Drawing.Size(75, 23);
+            this.OrdersButton.Size = new System.Drawing.Size(166, 23);
             this.OrdersButton.TabIndex = 2;
-            this.OrdersButton.Text = "Orders";
+            this.OrdersButton.Text = "Заказы";
             this.OrdersButton.UseVisualStyleBackColor = true;
             this.OrdersButton.Click += new System.EventHandler(this.OrdersButton_Click);
             // 
@@ -69,9 +71,9 @@
             // 
             this.ClientsButton.Location = new System.Drawing.Point(114, 167);
             this.ClientsButton.Name = "ClientsButton";
-            this.ClientsButton.Size = new System.Drawing.Size(75, 23);
+            this.ClientsButton.Size = new System.Drawing.Size(166, 23);
             this.ClientsButton.TabIndex = 3;
-            this.ClientsButton.Text = "Clients";
+            this.ClientsButton.Text = "Клиенты";
             this.ClientsButton.UseVisualStyleBackColor = true;
             this.ClientsButton.Click += new System.EventHandler(this.ClientsButton_Click);
             // 
@@ -79,9 +81,9 @@
             // 
             this.ProductTypesButton.Location = new System.Drawing.Point(114, 196);
             this.ProductTypesButton.Name = "ProductTypesButton";
-            this.ProductTypesButton.Size = new System.Drawing.Size(75, 23);
+            this.ProductTypesButton.Size = new System.Drawing.Size(166, 23);
             this.ProductTypesButton.TabIndex = 4;
-            this.ProductTypesButton.Text = "ProductTypesButton";
+            this.ProductTypesButton.Text = "Тип продукта";
             this.ProductTypesButton.UseVisualStyleBackColor = true;
             this.ProductTypesButton.Click += new System.EventHandler(this.ProductTypesButton_Click);
             // 
@@ -89,17 +91,27 @@
             // 
             this.UnitsButton.Location = new System.Drawing.Point(114, 225);
             this.UnitsButton.Name = "UnitsButton";
-            this.UnitsButton.Size = new System.Drawing.Size(75, 23);
+            this.UnitsButton.Size = new System.Drawing.Size(166, 23);
             this.UnitsButton.TabIndex = 5;
-            this.UnitsButton.Text = "UnitsButton";
+            this.UnitsButton.Text = "Еденицы измерения";
             this.UnitsButton.UseVisualStyleBackColor = true;
             this.UnitsButton.Click += new System.EventHandler(this.UnitsButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(156, 268);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "Выход";
+            this.exitButton.UseVisualStyleBackColor = true;
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 272);
+            this.ClientSize = new System.Drawing.Size(402, 313);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.UnitsButton);
             this.Controls.Add(this.ProductTypesButton);
             this.Controls.Add(this.ClientsButton);
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Button ClientsButton;
         private System.Windows.Forms.Button ProductTypesButton;
         private System.Windows.Forms.Button UnitsButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
