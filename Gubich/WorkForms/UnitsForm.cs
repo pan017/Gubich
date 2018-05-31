@@ -26,7 +26,7 @@ namespace Gubich.WorkForms
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
                 return;
             }
-            if (Unit.insertNewUnit(new Unit { Name = WordkingTextBox.Text }))
+            if (Unit.insertNewUnit(new Unit { Name = WordkingTextBox.Text, Description = DescriptionTextBox.Text }))
                 MessageBox.Show("Данные успешно добавлены!", "Типография");
             else
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
@@ -35,13 +35,13 @@ namespace Gubich.WorkForms
 
         private void SaveUnitsButton_Click(object sender, EventArgs e)
         {
-            if (WordkingTextBox.Text.Length <= 1)
+            if (WordkingTextBox.Text.Length < 1)
             {
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
                 return;
             }
-            if (Unit.updateUnit(new Unit { Name = WordkingTextBox.Text, id = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).id }))
-                MessageBox.Show("Данные успешно добавлены!", "Типография");
+            if (Unit.updateUnit(new Unit { Name = WordkingTextBox.Text, Description = DescriptionTextBox.Text, id = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).id }))
+                MessageBox.Show("Данные успешно сохранены!", "Типография");
             else
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
             updateDataGridView();
@@ -57,7 +57,7 @@ namespace Gubich.WorkForms
             unitList = Unit.getUnitsList();
             foreach (var item in unitList)
             {
-                UnitsDataGridView.Rows.Add(item.id, item.Name);
+                UnitsDataGridView.Rows.Add(item.id, item.Name, item.Description);
             }
         }
 
@@ -69,6 +69,12 @@ namespace Gubich.WorkForms
         private void UnitsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             WordkingTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Name;
+            DescriptionTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Description;
+        }
+
+        private void UnitsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

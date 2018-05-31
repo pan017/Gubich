@@ -13,7 +13,7 @@ namespace Gubich.Models
 
         public int id { get; set; }
         public string Name { get; set; }
-
+        public string Description { get; set; }
         public static List<Unit> getUnitsList()
         {
             string sqlExpression = "SELECT * FROM Units";
@@ -30,6 +30,7 @@ namespace Gubich.Models
                         Unit unit = new Unit();
                         unit.id = reader.GetInt32(0);
                         unit.Name = reader.GetString(1);
+                        unit.Description = reader.GetString(2);
                         result.Add(unit);
                     }
                 }
@@ -64,7 +65,7 @@ namespace Gubich.Models
         }
         public static bool updateUnit(Unit unit)
         {
-            string sqlExpression = String.Format("UPDATE Units SET Name = '{0}' WHERE id ={1}", unit.Name, unit.id);
+            string sqlExpression = String.Format("UPDATE Units SET Name = '{0}', Description = '{2}'  WHERE id ={1}", unit.Name, unit.id, unit.Description);
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
@@ -84,7 +85,7 @@ namespace Gubich.Models
         }
         public static bool insertNewUnit(Unit unit)
         {
-            string sqlExpression = String.Format("INSERT INTO Units (Name) VALUES ('{0}')", unit.Name);
+            string sqlExpression = String.Format("INSERT INTO Units (Name, Description) VALUES ('{0}', '{1}')", unit.Name, unit.Description);
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
