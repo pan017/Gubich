@@ -25,11 +25,11 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
             clientsList = Client.getClientList();
-            if (account.Role.RoleName != "admin")
-            {
-                AddClientButton.Visible = false;
-                EditClientButton.Visible = false;
-            }
+            //if (account.Role.RoleName != "admin")
+            //{
+            //    AddClientButton.Visible = false;
+            //    EditClientButton.Visible = false;
+            //}
         }
         List<Client> clientsList;
         private void ClientsForm_Load(object sender, EventArgs e)

@@ -44,7 +44,9 @@ namespace Gubich.Models
                         order.OrderDate = reader.GetDateTime(2);
                         order.ClientId = reader.GetInt32(3);
                         order.ProductId = reader.GetInt32(4);
+                        order.ManagerId = reader.GetInt32(5);
 
+                        order.Manager = Manager.getManagersList().FirstOrDefault(x => x.id == order.ManagerId);
                         order.Product = Product.getProduct(order.ProductId);
                         order.Client = Client.getClient(order.ClientId);
                         result.Add(order);
@@ -85,8 +87,8 @@ namespace Gubich.Models
         public static bool insertNewOrder(Order order)
         {
             
-            string sqlExpression = String.Format("INSERT INTO Orders (Count, OrderDate, ClientId, ProductId, ManagerId) VALUES ({0}, '{1}', {2}, {3}, 6)", 
-                order.Count, order.OrderDate, order.ClientId, order.ProductId);
+            string sqlExpression = String.Format("INSERT INTO Orders (Count, OrderDate, ClientId, ProductId, ManagerId) VALUES ({0}, '{1}', {2}, {3}, {4})", 
+                order.Count, order.OrderDate, order.ClientId, order.ProductId, order.ManagerId);
             SQLService.ExecuteSQLQuery(sqlExpression);
             return SQLService.ExecuteSQLQuery(GetUpdateStorageQuery(order));
             //try

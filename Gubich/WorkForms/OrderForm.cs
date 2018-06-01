@@ -1,5 +1,6 @@
 ﻿using Gubich.ModelForms;
 using Gubich.Models;
+using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,14 +19,16 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
         }
-        public OrderForm(Models.Account.Account account)
+        Account currentUser;
+        public OrderForm(Account account)
         {
             InitializeComponent();
-            if (account.Role.RoleName != "admin")
-            {
-                AddOrderButton.Visible = false;
-                EditOrderButton.Visible = false;
-            }
+            this.currentUser = account;
+            //if (account.Role.RoleName != "admin")
+            //{
+            //    AddOrderButton.Visible = false;
+            //    EditOrderButton.Visible = false;
+            //}
         }
         List<Order> ordersList;
         private void OrderForm_Load(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace Gubich.WorkForms
             {
                 //  item.ProductType = ProductType.getProductType(item.ProductTypeId);
                 //  item.Unit = Unit.getUnit(item.UnitId);
-                OrderDataGridView.Rows.Add(item.id, item.OrderDate, item.Product.Name, item.Client.Name, item.Count);
+                OrderDataGridView.Rows.Add(item.id, item.OrderDate, item.Product.Name, item.Client.Name, item.Count, item.Manager.FullName);
             }
         }
 
@@ -59,7 +62,7 @@ namespace Gubich.WorkForms
 
         private void EditOrderButton_Click(object sender, EventArgs e)
         {
-            OrderWorkingForm productWorkingForm = new OrderWorkingForm(ordersList.FirstOrDefault(x => x.id == (int)OrderDataGridView.CurrentRow.Cells[0].Value));
+            OrderWorkingForm productWorkingForm = new OrderWorkingForm(ordersList.FirstOrDefault(x => x.id == (int)OrderDataGridView.CurrentRow.Cells[0].Value), currentUser);
             productWorkingForm.ShowDialog();
         }
     }

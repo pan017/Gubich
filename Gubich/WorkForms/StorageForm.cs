@@ -22,6 +22,13 @@ namespace Gubich.WorkForms
         public StorageForm(Account account)
         {
             InitializeComponent();
+            if (account.Role.RoleName != "admin")
+            {
+                SaveButton.Visible = false;
+                ProductsCountNumericUpDown.Visible = false;
+                this.Size = new Size { Height = 360, Width = this.Size.Width };
+                label1.Visible = false;
+            }
         }
         private void StorageForm_Load(object sender, EventArgs e)
         {
@@ -38,5 +45,33 @@ namespace Gubich.WorkForms
             }
         }
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (ProductsCountNumericUpDown.Value < 0)
+            {
+                MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
+                return;
+            }
+            if (Storage.updateStorageItem(
+                new Storage {
+                    Count = (int)ProductsCountNumericUpDown.Value,
+                    id = storageList.FirstOrDefault(x => x.id == (int)StorageDataGridView.CurrentRow.Cells[0].Value).id,
+                ProductId = storageList.FirstOrDefault(x => x.id == (int)StorageDataGridView.CurrentRow.Cells[0].Value).ProductId
+                }))
+                MessageBox.Show("Данные успешно добавлены!", "Типография");
+            else
+                MessageBox.Show("Проверьте правильность ввода данных", "Ошибка");
+            updateDataGridView();
+        }
+
+        private void StorageForm_Activated(object sender, EventArgs e)
+        {
+            updateDataGridView();
+        }
+
+        private void StorageDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProductsCountNumericUpDown.Value = storageList.FirstOrDefault(x => x.id == (int)StorageDataGridView.CurrentRow.Cells[0].Value).Count;
+        }
     }
 }

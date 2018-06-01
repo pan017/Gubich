@@ -28,7 +28,7 @@ namespace Gubich.WorkForms
                 WordkingTextBox.Visible = false;
                 AddProductType.Visible = false;
                 label1.Visible = false;
-                this.Size = new Size { Height = this.Size.Height, Width = 402 };
+                this.Size = new Size { Height = this.Size.Height, Width = 260 };
             }
 
         }

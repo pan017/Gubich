@@ -23,13 +23,16 @@ namespace Gubich.WorkForms
         public UnitsForm(Account account)
         {
             InitializeComponent();
-            WordkingTextBox.Visible = false;
-            DescriptionTextBox.Visible = false;
-            SaveUnitsButton.Visible = false;
-            AddUnitsButton.Visible = false;
-            label1.Visible = false;
-            label2.Visible = false;
-            this.Size = new Size { Height = this.Size.Height, Width = 305 };
+            if (account.Role.RoleName != "admin")
+            {
+                WordkingTextBox.Visible = false;
+                DescriptionTextBox.Visible = false;
+                SaveUnitsButton.Visible = false;
+                AddUnitsButton.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                this.Size = new Size { Height = this.Size.Height, Width = 305 };
+            }
         }
         List<Unit> unitList;
         private void AddUnitsButton_Click(object sender, EventArgs e)

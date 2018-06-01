@@ -24,6 +24,10 @@ namespace Gubich
         {
             InitializeComponent();
             currentUser = acc;
+            if (currentUser.Role.RoleName != "admin")
+            {
+                AdminMenuButton.Visible = false;
+            }
         }
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
@@ -64,6 +68,17 @@ namespace Gubich
         {
             StorageForm storageForm = new StorageForm(currentUser);
             storageForm.ShowDialog();
+        }
+
+        private void AdminMenuButton_Click(object sender, EventArgs e)
+        {
+            ManagersForm managersForm = new ManagersForm();
+            managersForm.ShowDialog();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

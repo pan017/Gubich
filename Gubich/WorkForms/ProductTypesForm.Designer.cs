@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.ProductTypesDataGridView = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddProductType = new System.Windows.Forms.Button();
             this.WordkingTextBox = new System.Windows.Forms.TextBox();
             this.SaveProductTypeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ProductTypesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +51,19 @@
             this.ProductTypesDataGridView.TabIndex = 0;
             this.ProductTypesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductTypesDataGridView_CellClick);
             this.ProductTypesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductTypesDataGridView_CellContentClick);
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "id";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Тип продукта";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Width = 150;
             // 
             // AddProductType
             // 
@@ -88,24 +101,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Тип продукта";
             // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "id";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Тип продукта";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Width = 150;
-            // 
             // ProductTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 261);
+            this.ClientSize = new System.Drawing.Size(388, 261);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveProductTypeButton);
             this.Controls.Add(this.WordkingTextBox);

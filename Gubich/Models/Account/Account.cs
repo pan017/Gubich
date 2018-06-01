@@ -46,7 +46,7 @@ namespace Gubich.Models.Account
             return result;
         }
 
-        public static Account getProduct(int id)
+        public static Account getAccount(int id)
         {
 
             string sqlExpression = "SELECT * FROM Account WHERE id =" + id;

@@ -1,4 +1,5 @@
 ﻿using Gubich.Models;
+using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +14,20 @@ namespace Gubich.ModelForms
 {
     public partial class OrderWorkingForm : Form
     {
+        Account currentUser;
         public OrderWorkingForm()
         {
             InitializeComponent();
            
         }
-        public OrderWorkingForm(Order order)
+        public OrderWorkingForm(Order order, Account account)
         {
             InitializeComponent();
+            this.currentUser = account;
             this.order = order;
             OrderCount.Value = order.Count;
             OrderDateTime.Value = order.OrderDate;
-
+            initializeComboBox();
 
 
             for (int i = 0; i < clientsList.Count; i++)
@@ -87,6 +90,7 @@ namespace Gubich.ModelForms
             }
             else
             {
+                newOrder.ManagerId = currentUser.id;
                 if (Order.insertNewOrder(newOrder))
                 {
                     MessageBox.Show("Заказ успешно добавлен", "Типография");

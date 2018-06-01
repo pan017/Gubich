@@ -35,6 +35,7 @@
             this.ProductTypesButton = new System.Windows.Forms.Button();
             this.UnitsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.AdminMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ProductsButton
@@ -99,18 +100,30 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(156, 268);
+            this.exitButton.Location = new System.Drawing.Point(161, 283);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 6;
             this.exitButton.Text = "Выход";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // AdminMenuButton
+            // 
+            this.AdminMenuButton.Location = new System.Drawing.Point(114, 254);
+            this.AdminMenuButton.Name = "AdminMenuButton";
+            this.AdminMenuButton.Size = new System.Drawing.Size(166, 23);
+            this.AdminMenuButton.TabIndex = 7;
+            this.AdminMenuButton.Text = "Администрирование";
+            this.AdminMenuButton.UseVisualStyleBackColor = true;
+            this.AdminMenuButton.Click += new System.EventHandler(this.AdminMenuButton_Click);
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 313);
+            this.ClientSize = new System.Drawing.Size(402, 378);
+            this.Controls.Add(this.AdminMenuButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.UnitsButton);
             this.Controls.Add(this.ProductTypesButton);
@@ -119,7 +132,7 @@
             this.Controls.Add(this.StorageButton);
             this.Controls.Add(this.ProductsButton);
             this.Name = "MainMenuForm";
-            this.Text = "MainMenuForm";
+            this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.ResumeLayout(false);
 
@@ -134,5 +147,6 @@
         private System.Windows.Forms.Button ProductTypesButton;
         private System.Windows.Forms.Button UnitsButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button AdminMenuButton;
     }
 }

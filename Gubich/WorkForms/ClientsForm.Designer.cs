@@ -51,7 +51,7 @@
             this.AdresColumn});
             this.clientsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.clientsDataGridView.Name = "clientsDataGridView";
-            this.clientsDataGridView.Size = new System.Drawing.Size(494, 150);
+            this.clientsDataGridView.Size = new System.Drawing.Size(494, 211);
             this.clientsDataGridView.TabIndex = 0;
             // 
             // IdColumn
@@ -82,7 +82,7 @@
             // 
             // AddClientButton
             // 
-            this.AddClientButton.Location = new System.Drawing.Point(12, 168);
+            this.AddClientButton.Location = new System.Drawing.Point(12, 229);
             this.AddClientButton.Name = "AddClientButton";
             this.AddClientButton.Size = new System.Drawing.Size(176, 23);
             this.AddClientButton.TabIndex = 1;
@@ -92,7 +92,7 @@
             // 
             // EditClientButton
             // 
-            this.EditClientButton.Location = new System.Drawing.Point(12, 197);
+            this.EditClientButton.Location = new System.Drawing.Point(194, 229);
             this.EditClientButton.Name = "EditClientButton";
             this.EditClientButton.Size = new System.Drawing.Size(176, 23);
             this.EditClientButton.TabIndex = 3;
