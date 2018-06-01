@@ -63,5 +63,27 @@ namespace Gubich.WorkForms
             productWorkingForm.ShowDialog();
             //WordkingTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Name;
         }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < ProductDataGridView.Rows.Count; i++)
+            {
+                ProductDataGridView.Rows[i].Visible = false;
+                for (int c = 0; c < ProductDataGridView.Columns.Count; c++)
+                {
+                    if (ProductDataGridView[c, i].Value.ToString() == FindQueryTextBox.Text)
+                    {
+                        ProductDataGridView.Rows[i].Visible = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void ResetFindButton_Click(object sender, EventArgs e)
+        {
+            FindQueryTextBox.Text = "";
+            updateDataGridView();
+        }
     }
 }

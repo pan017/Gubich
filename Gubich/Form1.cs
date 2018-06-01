@@ -66,7 +66,7 @@ namespace Gubich
                 }
             }
             if (!isAuth)
-                MessageBox.Show("Ошибка", "Не верный логин или пароль");
+                MessageBox.Show("Не верный логин или пароль", "Ошибка");
         }
     }
 }

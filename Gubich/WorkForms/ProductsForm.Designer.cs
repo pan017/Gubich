@@ -38,6 +38,9 @@
             this.ProductTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.EditProductButton = new System.Windows.Forms.Button();
+            this.FindButton = new System.Windows.Forms.Button();
+            this.FindQueryTextBox = new System.Windows.Forms.TextBox();
+            this.ResetFindButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +117,41 @@
             this.EditProductButton.UseVisualStyleBackColor = true;
             this.EditProductButton.Click += new System.EventHandler(this.EditProductButton_Click);
             // 
+            // FindButton
+            // 
+            this.FindButton.Location = new System.Drawing.Point(578, 247);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.Size = new System.Drawing.Size(75, 23);
+            this.FindButton.TabIndex = 3;
+            this.FindButton.Text = "Поиск";
+            this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
+            // 
+            // FindQueryTextBox
+            // 
+            this.FindQueryTextBox.Location = new System.Drawing.Point(448, 247);
+            this.FindQueryTextBox.Name = "FindQueryTextBox";
+            this.FindQueryTextBox.Size = new System.Drawing.Size(124, 20);
+            this.FindQueryTextBox.TabIndex = 4;
+            // 
+            // ResetFindButton
+            // 
+            this.ResetFindButton.Location = new System.Drawing.Point(659, 247);
+            this.ResetFindButton.Name = "ResetFindButton";
+            this.ResetFindButton.Size = new System.Drawing.Size(75, 23);
+            this.ResetFindButton.TabIndex = 5;
+            this.ResetFindButton.Text = "Сброс";
+            this.ResetFindButton.UseVisualStyleBackColor = true;
+            this.ResetFindButton.Click += new System.EventHandler(this.ResetFindButton_Click);
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 322);
+            this.ClientSize = new System.Drawing.Size(748, 286);
+            this.Controls.Add(this.ResetFindButton);
+            this.Controls.Add(this.FindQueryTextBox);
+            this.Controls.Add(this.FindButton);
             this.Controls.Add(this.EditProductButton);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.ProductDataGridView);
@@ -128,6 +161,7 @@
             this.Load += new System.EventHandler(this.ProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -143,5 +177,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeColumn;
         private System.Windows.Forms.Button EditProductButton;
+        private System.Windows.Forms.Button FindButton;
+        private System.Windows.Forms.TextBox FindQueryTextBox;
+        private System.Windows.Forms.Button ResetFindButton;
     }
 }

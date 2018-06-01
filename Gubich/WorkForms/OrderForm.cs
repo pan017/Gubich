@@ -65,5 +65,27 @@ namespace Gubich.WorkForms
             OrderWorkingForm productWorkingForm = new OrderWorkingForm(ordersList.FirstOrDefault(x => x.id == (int)OrderDataGridView.CurrentRow.Cells[0].Value), currentUser);
             productWorkingForm.ShowDialog();
         }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < OrderDataGridView.Rows.Count; i++)
+            {
+                OrderDataGridView.Rows[i].Visible = false;
+                for (int c = 0; c < OrderDataGridView.Columns.Count; c++)
+                {
+                    if (OrderDataGridView[c, i].Value.ToString() == FindQueryTextBox.Text)
+                    {
+                        OrderDataGridView.Rows[i].Visible = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void ResetFindButton_Click(object sender, EventArgs e)
+        {
+            FindQueryTextBox.Text = "";
+            updateDataGridView();
+        }
     }
 }
