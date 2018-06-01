@@ -90,7 +90,7 @@ namespace Gubich.ModelForms
             }
             else
             {
-                newOrder.ManagerId = currentUser.id;
+                newOrder.ManagerId = Manager.getManagersList().FirstOrDefault(x => x.AccountId == currentUser.id).id;
                 if (Order.insertNewOrder(newOrder))
                 {
                     MessageBox.Show("Заказ успешно добавлен", "Типография");
