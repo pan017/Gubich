@@ -19,7 +19,6 @@ namespace Gubich
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlExpression, connection);
                     int number = command.ExecuteNonQuery();
-
                 }
                 return true;
             }

@@ -22,30 +22,20 @@ namespace Gubich
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
+                {
+                    connection.Open();
+                    connection.Close();
+                }
+            }
+            catch(System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нет подключения к базе данных", "Ошибка");
+                Application.Exit();
+            }
 
-            //MainMenuForm mainMenuForm = new MainMenuForm(Account.getAccountsList().First());
-            //mainMenuForm.Show();
-
-            //string sqlExpression = "SELECT * FROM Roles";
-            //using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-            //{
-            //    connection.Open();
-            //    SqlCommand command = new SqlCommand(sqlExpression, connection);
-            //    SqlDataReader reader = command.ExecuteReader();
-
-            //    if (reader.HasRows) // если есть данные
-            //    {
-            //        // выводим названия столбцов
-            //       // Console.WriteLine("{0}\t{1}\t{2}", reader.GetName(0), reader.GetName(1), reader.GetName(2));
-
-            //        while (reader.Read()) // построчно считываем данные
-            //        {
-
-            //        }
-            //    }
-
-            //    reader.Close();
-            //}
 
         }
 

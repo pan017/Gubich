@@ -65,43 +65,11 @@ namespace Gubich.Models
         }
         public static bool updateUnit(Unit unit)
         {
-            string sqlExpression = String.Format("UPDATE Units SET Name = '{0}', Description = '{2}'  WHERE id ={1}", unit.Name, unit.id, unit.Description);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("UPDATE Units SET Name = '{0}', Description = '{2}'  WHERE id ={1}", unit.Name, unit.id, unit.Description));          
         }
         public static bool insertNewUnit(Unit unit)
         {
-            string sqlExpression = String.Format("INSERT INTO Units (Name, Description) VALUES ('{0}', '{1}')", unit.Name, unit.Description);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("INSERT INTO Units (Name, Description) VALUES ('{0}', '{1}')", unit.Name, unit.Description));         
         }
     }
 }

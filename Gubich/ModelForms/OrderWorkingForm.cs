@@ -18,7 +18,13 @@ namespace Gubich.ModelForms
         public OrderWorkingForm()
         {
             InitializeComponent();
-           
+            initializeComboBox();
+        }
+        public OrderWorkingForm(Account account)
+        {
+            InitializeComponent();
+            this.currentUser = account;
+            initializeComboBox();
         }
         public OrderWorkingForm(Order order, Account account)
         {
@@ -76,7 +82,8 @@ namespace Gubich.ModelForms
                 Count = (int)OrderCount.Value,
                 OrderDate = OrderDateTime.Value,
                 ProductId = ((Product)ProductComboBox.SelectedItem).id,
-                ClientId = ((Client)ClientComboBox.SelectedItem).id};
+                ClientId = ((Client)ClientComboBox.SelectedItem).id,
+            ManagerId = Manager.getManagersList().FirstOrDefault(x => x.AccountId == currentUser.id).id};
             if (order != null)
             {
                 newOrder.id = order.id;

@@ -47,43 +47,26 @@ namespace Gubich.Models
         }
         public static bool updateClient(Client client)
         {
-            string sqlExpression = String.Format("UPDATE Clients SET Name = '{0}', Organization = '{1}', Phone = '{2}', Adres = '{3}' WHERE id ={4}", client.Name, client.Organization, client.Phone, client.Adres, client.id);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            return SQLService.ExecuteSQLQuery(
+                String.Format(
+                    "UPDATE Clients SET Name = '{0}', Organization = '{1}', Phone = '{2}', Adres = '{3}' WHERE id ={4}", 
+                    client.Name, 
+                    client.Organization, 
+                    client.Phone,
+                    client.Adres, 
+                    client.id));
+          
 
         }
         public static bool insertNewClient(Client client)
         {
-            string sqlExpression = String.Format("INSERT INTO Clients (Name, Organization, Phone, Adres) VALUES ('{0}', '{1}', '{2}', '{3}')", client.Name, client.Organization, client.Phone, client.Adres);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch(Exception e)
-            {
-                return false;
-            }
-            
+            return SQLService.ExecuteSQLQuery(
+                String.Format(
+                    "INSERT INTO Clients (Name, Organization, Phone, Adres) VALUES ('{0}', '{1}', '{2}', '{3}')", 
+                    client.Name, 
+                    client.Organization, 
+                    client.Phone, 
+                    client.Adres));         
         }
         public static Client getClient(int id)
         {

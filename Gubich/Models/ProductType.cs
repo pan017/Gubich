@@ -66,43 +66,11 @@ namespace Gubich.Models
 
         public static bool updateProductType(ProductType productType)
         {
-            string sqlExpression = String.Format("UPDATE ProductTypes SET Name = '{0}' WHERE id ={1}", productType.Name, productType.id);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("UPDATE ProductTypes SET Name = '{0}' WHERE id ={1}", productType.Name, productType.id));
         }
         public static bool insertNewProductType(ProductType productType)
         {
-            string sqlExpression = String.Format("INSERT INTO ProductTypes (Name) VALUES ('{0}')", productType.Name);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("INSERT INTO ProductTypes (Name) VALUES ('{0}')", productType.Name));
         }
     }
 }

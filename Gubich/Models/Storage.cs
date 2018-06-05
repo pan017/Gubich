@@ -42,44 +42,14 @@ namespace Gubich.Models
         }
         public static bool updateStorageItem(Storage storageItem)
         {
-            string sqlExpression = String.Format("UPDATE Storage SET ProductId = {0}, [Count] = {1} WHERE id ={2}", 
-                storageItem.ProductId, storageItem.Count, storageItem.id);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
 
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("UPDATE Storage SET ProductId = {0}, [Count] = {1} WHERE id ={2}", 
+                storageItem.ProductId, storageItem.Count, storageItem.id));          
         }
         public static bool insertNewStorageItem(Storage storageItem)
         {
-            string sqlExpression = String.Format("INSERT INTO Storage (ProductId, Count) VALUES ({0}, {1})", storageItem.ProductId, storageItem.Count);
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
+            return SQLService.ExecuteSQLQuery(String.Format("INSERT INTO Storage (ProductId, Count) VALUES ({0}, {1})",
+                storageItem.ProductId, storageItem.Count));
         }
     }
 }

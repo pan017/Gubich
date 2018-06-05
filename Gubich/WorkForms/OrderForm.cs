@@ -56,7 +56,7 @@ namespace Gubich.WorkForms
 
         private void AddOrderButton_Click(object sender, EventArgs e)
         {
-            OrderWorkingForm orderWorkingForm = new OrderWorkingForm();
+            OrderWorkingForm orderWorkingForm = new OrderWorkingForm(currentUser);
             orderWorkingForm.ShowDialog();
         }
 
