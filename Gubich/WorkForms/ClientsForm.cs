@@ -3,12 +3,7 @@ using Gubich.Models;
 using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.WorkForms
@@ -25,11 +20,6 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
             clientsList = Client.getClientList();
-            //if (account.Role.RoleName != "admin")
-            //{
-            //    AddClientButton.Visible = false;
-            //    EditClientButton.Visible = false;
-            //}
         }
         List<Client> clientsList;
         private void ClientsForm_Load(object sender, EventArgs e)

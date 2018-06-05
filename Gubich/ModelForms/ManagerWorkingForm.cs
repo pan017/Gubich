@@ -1,12 +1,6 @@
 ﻿using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.ModelForms
@@ -24,7 +18,6 @@ namespace Gubich.ModelForms
         {
             InitializeComponent();
             InitializeRolesComboBox();
-
             this.manager = manager;
             FullNameTextBox.Text = manager.FullName;
             BrithDayDateTimeP.Value = manager.BrithDay;
@@ -40,10 +33,6 @@ namespace Gubich.ModelForms
                 }
             }
         }
-        private void ManagerWorkingForm_Load(object sender, EventArgs e)
-        {
-
-        }
         void InitializeRolesComboBox()
         {
             rolesList = Role.getRolesList();
@@ -57,8 +46,6 @@ namespace Gubich.ModelForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
-
             if (manager != null)
             {
                 Manager updatetManager = initializeManager();
@@ -76,10 +63,6 @@ namespace Gubich.ModelForms
             {
                 insertNewManager();
             }
-            //if (manager == null)
-            //    insertNewManager();
-            //else
-            //    updateManager();
         }
         void updateManager()
         {

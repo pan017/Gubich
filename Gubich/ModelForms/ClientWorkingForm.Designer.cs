@@ -128,9 +128,7 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SaveButton);
             this.Name = "ClientWorkingForm";
-            this.Text = "ClientWorkingForm";
-            this.Activated += new System.EventHandler(this.ClientWorkingForm_Activated);
-            this.Load += new System.EventHandler(this.ClientWorkingForm_Load);
+            this.Text = "Клиент";
             this.ResumeLayout(false);
             this.PerformLayout();
 

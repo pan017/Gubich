@@ -125,7 +125,6 @@
             this.Name = "ManagersForm";
             this.Text = "ManagersForm";
             this.Activated += new System.EventHandler(this.ManagersForm_Activated);
-            this.Load += new System.EventHandler(this.ManagersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ManagersDataGridView)).EndInit();
             this.ResumeLayout(false);
 

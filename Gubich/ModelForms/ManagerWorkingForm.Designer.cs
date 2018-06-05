@@ -169,8 +169,7 @@
             this.Controls.Add(this.LoginTextBox);
             this.Controls.Add(this.FullNameTextBox);
             this.Name = "ManagerWorkingForm";
-            this.Text = "ManagerWorkingForm";
-            this.Load += new System.EventHandler(this.ManagerWorkingForm_Load);
+            this.Text = "Менеджер";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,12 +1,8 @@
 ﻿using Gubich.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.WorkForms
@@ -15,8 +11,7 @@ namespace Gubich.WorkForms
     {
         public ProductTypesForm()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         public ProductTypesForm(Models.Account.Account account)
@@ -30,7 +25,6 @@ namespace Gubich.WorkForms
                 label1.Visible = false;
                 this.Size = new Size { Height = this.Size.Height, Width = 260 };
             }
-
         }
         private List<ProductType> productTypesList;
         private void ProductTypesForm_Load(object sender, EventArgs e)
@@ -78,9 +72,6 @@ namespace Gubich.WorkForms
             {
                 ProductTypesDataGridView.Rows.Add(item.id, item.Name);
             }
-        }
-        private void ProductTypesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         private void ProductTypesDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

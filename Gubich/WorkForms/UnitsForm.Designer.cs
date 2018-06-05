@@ -55,7 +55,6 @@
             this.UnitsDataGridView.Size = new System.Drawing.Size(265, 237);
             this.UnitsDataGridView.TabIndex = 4;
             this.UnitsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UnitsDataGridView_CellClick);
-            this.UnitsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UnitsDataGridView_CellContentClick);
             // 
             // SaveUnitsButton
             // 
@@ -141,7 +140,6 @@
             this.Name = "UnitsForm";
             this.Text = "Еденицы измерения";
             this.Activated += new System.EventHandler(this.UnitsForm_Activated);
-            this.Load += new System.EventHandler(this.UnitsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UnitsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

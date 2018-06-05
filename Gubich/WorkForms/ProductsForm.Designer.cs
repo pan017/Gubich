@@ -158,7 +158,6 @@
             this.Name = "ProductsForm";
             this.Text = "Продукция";
             this.Activated += new System.EventHandler(this.ProductsForm_Activated);
-            this.Load += new System.EventHandler(this.ProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

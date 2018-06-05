@@ -50,7 +50,6 @@
             this.ProductTypesDataGridView.Size = new System.Drawing.Size(218, 237);
             this.ProductTypesDataGridView.TabIndex = 0;
             this.ProductTypesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductTypesDataGridView_CellClick);
-            this.ProductTypesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductTypesDataGridView_CellContentClick);
             // 
             // idColumn
             // 

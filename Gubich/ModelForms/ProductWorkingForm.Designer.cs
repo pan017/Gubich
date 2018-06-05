@@ -170,8 +170,7 @@
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Name = "ProductWorkingForm";
-            this.Text = "ProductWorkingForm";
-            this.Load += new System.EventHandler(this.ProductWorkingForm_Load);
+            this.Text = "Продукт";
             this.ResumeLayout(false);
             this.PerformLayout();
 

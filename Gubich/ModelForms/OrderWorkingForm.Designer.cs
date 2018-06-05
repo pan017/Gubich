@@ -61,7 +61,7 @@
             this.ClientComboBox.FormattingEnabled = true;
             this.ClientComboBox.Location = new System.Drawing.Point(12, 123);
             this.ClientComboBox.Name = "ClientComboBox";
-            this.ClientComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ClientComboBox.Size = new System.Drawing.Size(200, 21);
             this.ClientComboBox.TabIndex = 2;
             // 
             // ProductComboBox
@@ -69,13 +69,13 @@
             this.ProductComboBox.FormattingEnabled = true;
             this.ProductComboBox.Location = new System.Drawing.Point(12, 162);
             this.ProductComboBox.Name = "ProductComboBox";
-            this.ProductComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ProductComboBox.Size = new System.Drawing.Size(200, 21);
             this.ProductComboBox.TabIndex = 3;
             this.ProductComboBox.SelectedIndexChanged += new System.EventHandler(this.ProductComboBox_SelectedIndexChanged);
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(165, 202);
+            this.SaveButton.Location = new System.Drawing.Point(149, 202);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 4;
@@ -121,7 +121,7 @@
             // 
             // NewClientButton
             // 
-            this.NewClientButton.Location = new System.Drawing.Point(149, 121);
+            this.NewClientButton.Location = new System.Drawing.Point(9, 202);
             this.NewClientButton.Name = "NewClientButton";
             this.NewClientButton.Size = new System.Drawing.Size(123, 23);
             this.NewClientButton.TabIndex = 9;
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(253, 261);
             this.Controls.Add(this.StorageCountLabel);
             this.Controls.Add(this.NewClientButton);
             this.Controls.Add(this.ProductLabel);
@@ -154,7 +154,7 @@
             this.Controls.Add(this.OrderCount);
             this.Controls.Add(this.OrderDateTime);
             this.Name = "OrderWorkingForm";
-            this.Text = "OrderWorkingForm";
+            this.Text = "Зазаз";
             this.Activated += new System.EventHandler(this.OrderWorkingForm_Activated);
             this.Load += new System.EventHandler(this.OrderWorkingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrderCount)).EndInit();

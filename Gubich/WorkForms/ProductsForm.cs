@@ -2,12 +2,7 @@
 using Gubich.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.WorkForms
@@ -27,10 +22,6 @@ namespace Gubich.WorkForms
                 AddProductButton.Visible = false;
                 EditProductButton.Visible = false;
             }
-        }
-        private void ProductsForm_Load(object sender, EventArgs e)
-        {
-           // updateDataGridView();
         }
 
         void updateDataGridView()
@@ -61,7 +52,6 @@ namespace Gubich.WorkForms
         {
             ProductWorkingForm productWorkingForm = new ProductWorkingForm(productsList.FirstOrDefault(x => x.id == (int)ProductDataGridView.CurrentRow.Cells[0].Value));
             productWorkingForm.ShowDialog();
-            //WordkingTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Name;
         }
 
         private void FindButton_Click(object sender, EventArgs e)

@@ -157,7 +157,6 @@
             this.Name = "OrderForm";
             this.Text = "Заказы";
             this.Activated += new System.EventHandler(this.OrderForm_Activated);
-            this.Load += new System.EventHandler(this.OrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

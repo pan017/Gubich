@@ -1,12 +1,5 @@
 ﻿using Gubich.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.ModelForms
@@ -17,6 +10,7 @@ namespace Gubich.ModelForms
         {
             InitializeComponent();
         }
+      
         Client client;
         public ClientWorkingForm(Client client)
         {
@@ -26,11 +20,6 @@ namespace Gubich.ModelForms
             OrganizationTextBox.Text = client.Organization;
             AdresTextBox.Text = client.Adres;
             PhoneTextBox.Text = client.Phone;
-        }
-
-        private void ClientWorkingForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -64,11 +53,6 @@ namespace Gubich.ModelForms
                     MessageBox.Show( "Проверьте правильность ввода данных", "Ошибка");
                 }
             }
-        }
-
-        private void ClientWorkingForm_Activated(object sender, EventArgs e)
-        {
-
         }
     }
 }

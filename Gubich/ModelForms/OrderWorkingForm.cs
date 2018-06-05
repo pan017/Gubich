@@ -2,12 +2,7 @@
 using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.ModelForms
@@ -34,7 +29,6 @@ namespace Gubich.ModelForms
             OrderCount.Value = order.Count;
             OrderDateTime.Value = order.OrderDate;
             initializeComboBox();
-
 
             for (int i = 0; i < clientsList.Count; i++)
             {
@@ -139,7 +133,7 @@ namespace Gubich.ModelForms
 
         private void OrderWorkingForm_Activated(object sender, EventArgs e)
         {
-            initializeComboBox();
+            //initializeComboBox();
         }
 
         private void ProductComboBox_SelectedIndexChanged(object sender, EventArgs e)

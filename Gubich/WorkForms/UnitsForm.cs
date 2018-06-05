@@ -75,12 +75,6 @@ namespace Gubich.WorkForms
             {
                 UnitsDataGridView.Rows.Add(item.id, item.Name, item.Description);
             }
-           // UnitsDataGridView.Rows.Remove(UnitsDataGridView.Rows[UnitsDataGridView.RowCount]);
-        }
-
-        private void UnitsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          //  WordkingTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Name;
         }
 
         private void UnitsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,9 +83,5 @@ namespace Gubich.WorkForms
             DescriptionTextBox.Text = unitList.FirstOrDefault(x => x.id == (int)UnitsDataGridView.CurrentRow.Cells[0].Value).Description;
         }
 
-        private void UnitsForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

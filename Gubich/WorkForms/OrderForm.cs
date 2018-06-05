@@ -3,12 +3,7 @@ using Gubich.Models;
 using Gubich.Models.Account;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.WorkForms
@@ -24,27 +19,15 @@ namespace Gubich.WorkForms
         {
             InitializeComponent();
             this.currentUser = account;
-            //if (account.Role.RoleName != "admin")
-            //{
-            //    AddOrderButton.Visible = false;
-            //    EditOrderButton.Visible = false;
-            //}
         }
         List<Order> ordersList;
-        private void OrderForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         void updateDataGridView()
         {
             ordersList = Order.getOrdersList();
-
             OrderDataGridView.Rows.Clear();
             foreach (var item in ordersList)
             {
-                //  item.ProductType = ProductType.getProductType(item.ProductTypeId);
-                //  item.Unit = Unit.getUnit(item.UnitId);
                 OrderDataGridView.Rows.Add(item.id, item.OrderDate, item.Product.Name, item.Client.Name, item.Count, item.Manager.FullName);
             }
         }

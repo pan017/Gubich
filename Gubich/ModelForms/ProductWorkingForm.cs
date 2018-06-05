@@ -1,12 +1,6 @@
 ﻿using Gubich.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gubich.ModelForms
@@ -49,20 +43,6 @@ namespace Gubich.ModelForms
                     break;
                 }
             }
-            //for (int i = 0; i < ProductTypeComboBox.Items.Count; i++)
-            //{
-            //    for (int j = 0; j < productTypesList.Count; j++)
-            //    {
-            //        if (ProductTypeComboBox.Items[i] == productTypesList[j])
-            //        {
-            //            ProductTypeComboBox.SelectedIndex = i;
-            //            break;
-            //        }
-            //    }
-
-            //}
-            //   ProductTypeComboBox.SelectedIndex = ProductTypeComboBox.Items product.ProductType;
-           // UnitsComboBox.SelectedItem = product.Unit;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -97,9 +77,7 @@ namespace Gubich.ModelForms
             }
             else
                 Product.insertNewProduct(NewProduct);
-            this.Close();
-               
-
+            this.Close();  
         }
         void initializeComboBox()
         {
@@ -113,11 +91,6 @@ namespace Gubich.ModelForms
             {
                 ProductTypeComboBox.Items.Add(item);
             }
-        }
-        private void ProductWorkingForm_Load(object sender, EventArgs e)
-        {
-           
-           
         }
     }
 }
