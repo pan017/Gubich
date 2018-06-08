@@ -33,8 +33,17 @@ namespace Gubich.WorkForms
 
         private void EditManagerButton_Click(object sender, EventArgs e)
         {
-            ManagerWorkingForm productWorkingForm = new ManagerWorkingForm(managersList.FirstOrDefault(x => x.id == (int)ManagersDataGridView.CurrentRow.Cells[0].Value));
-            productWorkingForm.ShowDialog();
+            try
+            {
+
+
+                ManagerWorkingForm productWorkingForm = new ManagerWorkingForm(managersList.FirstOrDefault(x => x.id == (int)ManagersDataGridView.CurrentRow.Cells[0].Value));
+                productWorkingForm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите пользователя для редактирования", "Ошибка");
+            }
         }
 
         private void ManagersForm_Activated(object sender, EventArgs e)

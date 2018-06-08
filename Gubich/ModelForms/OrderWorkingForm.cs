@@ -64,7 +64,7 @@ namespace Gubich.ModelForms
             }
             if (OrderCount.Value <= 0)
             {
-                MessageBox.Show("Выбирите товар", "Ошибка");
+                MessageBox.Show("Выбирите количество товара", "Ошибка");
                 return;
             }
             if (getSelectedProductsCount() < OrderCount.Value)

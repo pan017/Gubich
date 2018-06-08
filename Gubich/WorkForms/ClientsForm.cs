@@ -48,9 +48,19 @@ namespace Gubich.WorkForms
 
         private void EditClientButton_Click(object sender, EventArgs e)
         {
-            ClientWorkingForm clientWorkingForm = new ClientWorkingForm(clientsList.FirstOrDefault(x => x.id == (int)clientsDataGridView.SelectedRows[0].Cells[0].Value));
-            clientWorkingForm.ShowDialog();
-        }
+            try
+            {
+
+
+                ClientWorkingForm clientWorkingForm = new ClientWorkingForm(clientsList.FirstOrDefault(x => x.id == (int)clientsDataGridView.SelectedRows[0].Cells[0].Value));
+                clientWorkingForm.ShowDialog();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show( "Выберите клиента для редактирования", "Ошибка");
+            }
+         }
+
 
         private void FindButton_Click(object sender, EventArgs e)
         {

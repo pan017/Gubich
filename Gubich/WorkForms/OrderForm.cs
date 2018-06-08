@@ -45,8 +45,15 @@ namespace Gubich.WorkForms
 
         private void EditOrderButton_Click(object sender, EventArgs e)
         {
-            OrderWorkingForm productWorkingForm = new OrderWorkingForm(ordersList.FirstOrDefault(x => x.id == (int)OrderDataGridView.CurrentRow.Cells[0].Value), currentUser);
-            productWorkingForm.ShowDialog();
+            try
+            {
+                OrderWorkingForm productWorkingForm = new OrderWorkingForm(ordersList.FirstOrDefault(x => x.id == (int)OrderDataGridView.CurrentRow.Cells[0].Value), currentUser);
+                productWorkingForm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите заказ для редактирования", "Ошибка");
+            }
         }
 
         private void FindButton_Click(object sender, EventArgs e)

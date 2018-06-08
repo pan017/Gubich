@@ -50,8 +50,15 @@ namespace Gubich.WorkForms
 
         private void EditProductButton_Click(object sender, EventArgs e)
         {
-            ProductWorkingForm productWorkingForm = new ProductWorkingForm(productsList.FirstOrDefault(x => x.id == (int)ProductDataGridView.CurrentRow.Cells[0].Value));
-            productWorkingForm.ShowDialog();
+            try
+            {
+                ProductWorkingForm productWorkingForm = new ProductWorkingForm(productsList.FirstOrDefault(x => x.id == (int)ProductDataGridView.CurrentRow.Cells[0].Value));
+                productWorkingForm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите товар для редактирования", "Ошибка");
+            }
         }
 
         private void FindButton_Click(object sender, EventArgs e)
